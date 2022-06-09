@@ -99,7 +99,10 @@ header {
 }
 
 main {
-	display: flex;
+	display: grid;
+	grid-auto-columns: fit-content(2fr);
+    gap: 30px;
+	margin-left:30px;
 }
 
 .tag:hover {
@@ -150,12 +153,71 @@ img {
 	color: #ffffff;
 }
 
+.description_card {
+    font-size: 25px;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+
+.link_source {
+    cursor: pointer;
+    color: #000;
+    text-decoration: underline
+}
+
+.list_card {
+    font-size: 20px;
+    padding-left: 30px;
+    padding-top: 5px;
+}
+
+.card {
+    display: flex;
+    height: fit-content;
+	margin: 20px;
+	gap: 10px;
+	border: #038a0e 5px solid;
+	border-radius: 10px;
+	font-size: 10px;
+	background-color: #030303;
+}
+
+
+.card_medium {
+    display: flex;
+    height: fit-content;
+	margin: 6px 6px 6px 6px;
+    gap: 10px;
+	border: #038a0e 5px solid;
+	border-radius: 10px;
+	font-size: 10px;
+	background-color: #030303;
+}
+
+
+
+.card_small {
+	display: flex;
+    height: fit-content;
+	margin: 6px 6px 6px 6px;
+    gap: 10px;
+	border: #038a0e 5px solid;
+	border-radius: 10px;
+	font-size: 10px;
+	background-color: #030303;
+}
+
+
+
+.link_source{
+	color: #ffffff;
+}
+
 @media (max-width: 1024px) and (max-height: 768px) {
     .content {
 		gap: 1em;
 		font-size: smaller;
 		grid-template-columns: 1fr 1fr;
-	
 	}
 
 	.song-box{
