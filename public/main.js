@@ -54,12 +54,15 @@ SEARCHBAR.addEventListener("keydown", (event) => {
         else {
             switch (check) {
                 case 0:
+                    console.log(0)
                     setSearchedMusicSettings(event.target.value);
                     break;
                 case 1:
+                    console.log(1)
                     setSearchedArtistsSettings(event.target.value);
                     break;
                 default:
+                    console.log(2)
                     break;
             }
         }
@@ -86,6 +89,7 @@ function getTopMusic() {
       .then((result) => result.json())
       .then((data) =>
         data.tracks.track.forEach((track) => {
+            console.log(track)
           const TEMPCARD = document.createElement("details");
           TEMPCARD.className = "card";
           const LIST = createList();
@@ -113,7 +117,7 @@ function getSearchedMusic() {
       .then((data) =>
         data.results.trackmatches.track.forEach((track) => {
           const TEMPCARD = document.createElement("details");
-          TEMPCARD.className = "card_small";
+          TEMPCARD.className = "card";
           const LIST = createList();
           const TRACKLINK = createLink(track);
           TEMPCARD.appendChild(createNameItem(track));
@@ -138,7 +142,7 @@ function getTopArtists() {
       .then((data) =>
         data.artists.artist.forEach((artist) => {
           const TEMPCARD = document.createElement("details");
-          TEMPCARD.className = "card_medium";
+          TEMPCARD.className = "card";
           const LIST = createList();
           const PERFORMERLINK = createLink(artist);
           TEMPCARD.appendChild(createNameItem(artist));
@@ -163,7 +167,7 @@ function getArtistsSearched() {
       .then((data) =>
         data.results.artistmatches.artist.forEach((artist) => {
           const TEMPCARD = document.createElement("details");
-          TEMPCARD.className = "card_small";
+          TEMPCARD.className = "card";
           const LIST = createList();
           const PERFORMERLINK = createLink(artist);
           TEMPCARD.appendChild(createNameItem(artist));
