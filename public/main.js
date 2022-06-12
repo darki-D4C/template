@@ -24,27 +24,11 @@ function createList() {
     return LISTCARD;
 }
 
-function createAuditions(item) {
+function createAuditions(amount) {
     const AUDITIONS = document.createElement("p");
-    AUDITIONS.textContent = "Прослушивания: " + item.playcount;
+    AUDITIONS.textContent = "Прослушивания: " + amount;
     return AUDITIONS;
 }
-
-function createLink(item) {
-    const TRACKLINK = document.createElement("a");
-    TRACKLINK.className = "link_source";
-    TRACKLINK.href = item.url;
-    TRACKLINK.target = "_blank";
-    TRACKLINK.rel = "noopener";
-    return TRACKLINK;
-}
-
-function createLastFMLink() {
-    const LASTFMLINK = document.createElement("li");
-    LASTFMLINK.textContent = "Подробнее на Last FM...";
-    return LASTFMLINK;
-}
-
 
 SEARCHBAR.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
@@ -54,15 +38,12 @@ SEARCHBAR.addEventListener("keydown", (event) => {
         else {
             switch (check) {
                 case 0:
-                    console.log(0)
                     setSearchedMusicSettings(event.target.value);
                     break;
                 case 1:
-                    console.log(1)
                     setSearchedArtistsSettings(event.target.value);
                     break;
                 default:
-                    console.log(2)
                     break;
             }
         }
@@ -89,16 +70,13 @@ function getTopMusic() {
       .then((result) => result.json())
       .then((data) =>
         data.tracks.track.forEach((track) => {
-            console.log(track)
           const TEMPCARD = document.createElement("details");
           TEMPCARD.className = "card";
           const LIST = createList();
-          const TRACKLINK = createLink(track);
           TEMPCARD.appendChild(createNameItem(track));
           const PERFORMER = createPerformer(track)
           LIST.appendChild(PERFORMER);
-          LIST.appendChild(createAuditions(track));
-          LIST.appendChild(TRACKLINK);
+          LIST.appendChild(createAuditions(track.playcount));
           TEMPCARD.appendChild(LIST);
           CONTENT.append(TEMPCARD);
         })
@@ -119,10 +97,8 @@ function getSearchedMusic() {
           const TEMPCARD = document.createElement("details");
           TEMPCARD.className = "card";
           const LIST = createList();
-          const TRACKLINK = createLink(track);
           TEMPCARD.appendChild(createNameItem(track));
-          TRACKLINK.appendChild(createLastFMLink());
-          LIST.appendChild(TRACKLINK);
+          LIST.appendChild(createAuditions(track.listeners));
           TEMPCARD.appendChild(LIST);
           CONTENT.append(TEMPCARD);
         })
@@ -144,11 +120,8 @@ function getTopArtists() {
           const TEMPCARD = document.createElement("details");
           TEMPCARD.className = "card";
           const LIST = createList();
-          const PERFORMERLINK = createLink(artist);
           TEMPCARD.appendChild(createNameItem(artist));
-          LIST.appendChild(createAuditions(artist));
-          PERFORMERLINK.appendChild(createLastFMLink());
-          LIST.appendChild(PERFORMERLINK);
+          LIST.appendChild(createAuditions(artist.playcount));
           TEMPCARD.appendChild(LIST);
           CONTENT.append(TEMPCARD);
         })
@@ -169,10 +142,8 @@ function getArtistsSearched() {
           const TEMPCARD = document.createElement("details");
           TEMPCARD.className = "card";
           const LIST = createList();
-          const PERFORMERLINK = createLink(artist);
           TEMPCARD.appendChild(createNameItem(artist));
-          PERFORMERLINK.appendChild(createLastFMLink());
-          LIST.appendChild(PERFORMERLINK);
+          LIST.appendChild(createAuditions(artist.listeners));
           TEMPCARD.appendChild(LIST);
           CONTENT.append(TEMPCARD);
         })
