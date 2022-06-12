@@ -12,9 +12,9 @@ function createNameItem(item) {
 }
 
 
-function createPerformer(item) {
+function createPerformer(artistName) {
     const PERFORMER = document.createElement("p");
-    PERFORMER.textContent = "Исполнитель: " + item.artist.name;
+    PERFORMER.textContent = "Исполнитель: " + artistName;
     return PERFORMER;
 }
 
@@ -74,7 +74,7 @@ function getTopMusic() {
           TEMPCARD.className = "card";
           const LIST = createList();
           TEMPCARD.appendChild(createNameItem(track));
-          const PERFORMER = createPerformer(track)
+          const PERFORMER = createPerformer(track.artist.name)
           LIST.appendChild(PERFORMER);
           LIST.appendChild(createAuditions(track.playcount));
           TEMPCARD.appendChild(LIST);
@@ -98,6 +98,8 @@ function getSearchedMusic() {
           TEMPCARD.className = "card";
           const LIST = createList();
           TEMPCARD.appendChild(createNameItem(track));
+          const PERFORMER = createPerformer(track.artist)
+          LIST.appendChild(PERFORMER);
           LIST.appendChild(createAuditions(track.listeners));
           TEMPCARD.appendChild(LIST);
           CONTENT.append(TEMPCARD);
