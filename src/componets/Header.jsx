@@ -2,7 +2,7 @@
 import { MyContext } from "../Context";
 import { useContext } from "react";
 
-function Header(props) {
+function Header() {
     // eslint-disable-next-line no-unused-vars
     const { _, setIsMusic, __,setSearchString } = useContext(MyContext);
 

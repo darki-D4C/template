@@ -14,20 +14,11 @@ function App() {
         searchString, setSearchString,
     }), [isMusic, searchString]);
 
-    // const goToPage = (bool: boolean) =>{
-    //     setIsMusic(bool)
-    //     setSearchString("")
-    // }
-
-    // const getSearch = (str:string) =>{
-    //     setSearchString(str)
-    // }
-
     return (
         <div className="app">
             <MyContext.Provider value={providerValue}>
-                <Header isMusic={isMusic} />
-                <Main key={isMusic} pageType={isMusic} searchValue={searchString} />
+                <Header />
+                <Main key={isMusic}/>
             </MyContext.Provider>
             <Footer />
         </div>

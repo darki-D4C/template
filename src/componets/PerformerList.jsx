@@ -9,7 +9,6 @@ function PerformerList(props) {
         const API_URL = (process.env.REACT_APP_API_URL)
         const API_KEY = (process.env.REACT_APP_API_KEY)
         const fetchData = async () => {
-            //switch depending on search is not empty
             const response = props.searchString === "" ? await fetch(
                 `${API_URL}?method=chart.gettopartists&api_key=${API_KEY}&format=json`
             ) : await fetch(

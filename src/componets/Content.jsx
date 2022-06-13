@@ -7,7 +7,6 @@ import { useContext } from "react";
 function Content() {
     const { isMusic,_, searchString,__ } = useContext(MyContext);
     return (
-        // isMusic and props - search string
         <div className='content'>
             {isMusic
                 ? <MusicList searchString={searchString}/>
