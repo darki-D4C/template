@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Footer from './componets/Footer';
+import Header from './componets/Header';
+import Main from './componets/Main';
+import { MyContext } from './Context';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
-// export default App;
+
+function App() {
+    const [isMusic, setIsMusic] = useState(true);
+    const [searchString, setSearchString] = useState("");
+    const providerValue = React.useMemo(() => ({
+        isMusic, setIsMusic,
+        searchString, setSearchString,
+    }), [isMusic, searchString]);
+
+    // const goToPage = (bool: boolean) =>{
+    //     setIsMusic(bool)
+    //     setSearchString("")
+    // }
+
+    // const getSearch = (str:string) =>{
+    //     setSearchString(str)
+    // }
+
+    return (
+        <div className="app">
+            <MyContext.Provider value={providerValue}>
+                <Header isMusic={isMusic} />
+                <Main key={isMusic} pageType={isMusic} searchValue={searchString} />
+            </MyContext.Provider>
+            <Footer />
+        </div>
+    );
+}
+
+export default App;
