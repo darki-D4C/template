@@ -17,9 +17,9 @@
       <img class="logo" src="icon-menu.png" alt="Logo" width="47px" height="47px">
     </a>
     <nav class="navigation">
-      <a class="item" href="">Главная</a>
-      <a class="item" href="">Плейлисты</a>
-      <a class="item" href="">Любимое</a>
+      <a class="item" href="index.html">Главная</a>
+      <a class="item" onclick="setTopMusicSettings()">Любимое</a>
+      <a class="item" onclick="setTopArtistsSettings()">Исполнители</a>
     </nav>
     <div class="search">
       <input class="search-bar" type="text" placeholder="Исполнитель, трек, альбом">
@@ -27,59 +27,7 @@
   </header>
 
   <main>
-
-
     <div class="content">
-      <div class="song-box">
-        <div class="image-box">
-          <img class="front" src="resources/demons.jpg" alt="" />
-          <div class="plays">40000 прослушиваний</div>
-        </div>
-        <div class="properties-box">
-          <div class="name">Демоны</div>
-          <div class="author">Три дня дождя</div>
-        </div>
-      </div>
-      <div class="song-box">
-        <div class="image-box">
-          <img class="front" src="resources/utekai.jpg" alt="" />
-          <div class="plays">103000 прослушиваний</div>
-        </div>
-        <div class="properties-box">
-          <div class="name">Утекай</div>
-          <div class="author">Мумий Тролль</div>
-        </div>
-      </div>
-      <div class="song-box">
-        <div class="image-box">
-          <img class="front" src="resources/disco.jpg" alt="" />
-          <div class="plays">410000 прослушиваний</div>
-        </div>
-        <div class="properties-box">
-          <div class="author">диско элизиум</div>
-          <div class="name">Pyrokinesis</div>
-        </div>
-      </div>
-      <div class="song-box">
-        <div class="image-box">
-          <img class="front" src="resources/shagane.jpg" alt="" />
-          <div class="plays">4033000 прослушиваний</div>
-        </div>
-        <div class="properties-box">
-          <div class="author">Шаганэ</div>
-          <div class="name">Монеточка</div>
-        </div>
-      </div>
-      <div class="song-box">
-        <div class="image-box">
-          <img class="front" src="resources/staya.jpg" alt="" />
-          <div class="plays">49000 прослушиваний</div>
-        </div>
-        <div class="properties-box">
-          <div class="author">СТАЯ 1993</div>
-          <div class="name">Loqiemean</div>
-        </div>
-      </div>
     </div>
 
     <aside class="side-menu">
@@ -98,6 +46,7 @@
   <footer>
     <p class="mark">© 2022 Spotify</p>
   </footer>
+  <script async src="./main.js"></script>
 </body>
 
 </html>
